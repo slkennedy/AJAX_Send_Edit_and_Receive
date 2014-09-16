@@ -22,29 +22,34 @@
     <!-- endbuild -->
   </head>
 <body>
-<nav>
-    <ul>
-        <li>
-        <a href="#">Add Volunteer</a>
-        </li>
-        <li>
-            <a class ="viewbutton" href="#">View Volunteers</a>
-        </li>
-    </ul>
-</nav>
-<h1>View Volunteers</h1>
-    <section id="viewvolunteer">
-        <table class="tablevolunteer">
-            <th>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>Phone</td>
-                <td>Email</td>                
-                <td>Job</td>
-                <td>Changes</td>
-            </th>            
-        </table>
-    </section>
+<h1>Update Volunteer</h1>
+    <form id="addvolunteer" method="post">
+        <div class="form">
+            <h2>Name:</h2>
+                <p>
+                    <input type="text" name="firstname" placeholder="First Name"/>
+                </p>
+                <p>
+                    <input type="text" name="lastname" placeholder="Last Name"/>
+                </p>
+            <h2>Contact Info:</h2>
+                <p>
+                    <input type="text" name="phone" placeholder="Phone" />
+                </p>
+                <p>
+                    <input type="email" name="email" placeholder="Email" />
+                </p>
+            <h2>Job Assignment:</h2>
+                <p>
+                    <select name="job" class="dropdown">
+                        <option value="job1">Job 1</option>
+                        <option value="job2">Job 2</option>
+                        <option value="job3">Job 3</option>
+                    </select> 
+                </p>
+            <input type="submit" value="Add Volunteer" id="button"/>
+        </div>
+    </form>
 
 <script id="tableInfo" type="text/template">
     <tr>

@@ -25,16 +25,10 @@
 <nav>
     <ul>
         <li>
-        <a href="#">Add Volunteer</a>
+        <a class="viewbutton" href="#">Add Volunteer</a>
         </li>
         <li>
             <a class="viewbutton" href="#">View Volunteers</a>
-        </li>
-        <li>
-            <a class="viewbutton" href="#">Update a Volunteer</a>
-        </li>
-        <li>
-            <a class="viewbutton" href="#">Delete a Volunteer</a>
         </li>
     </ul>
 </nav>
@@ -77,9 +71,37 @@
                     <th>Changes</th>        
             </table>
     </section>
+    <h1>Update A Volunteer</h1>
+    <form id="updatevolunteer" method="post">
+        <div class="form">
+            <h2>Update Name:</h2>
+                <p>
+                    <input type="text" name="firstname" placeholder="First Name" id="updatefirst"/>
+                </p>
+                <p>
+                    <input type="text" name="lastname" placeholder="Last Name" id="updatelast"/>
+                </p>
+            <h2>Update Contact Info:</h2>
+                <p>
+                    <input type="text" name="phone" placeholder="Phone" id="updatephone" />
+                </p>
+                <p>
+                    <input type="email" name="email" placeholder="Email" id="updateemail" />
+                </p>
+            <h2>Update Job Assignment:</h2>
+                <p>
+                    <select name="job" class="dropdown" id="updatejob">
+                        <option value="job1">Job 1</option>
+                        <option value="job2">Job 2</option>
+                        <option value="job3">Job 3</option>
+                    </select> 
+                </p>
+            <input type="submit" value="Update Volunteer" id="updatebutton"/>
+        </div>
+    </form>
 
 <script id="tableInfo" type="text/template">
-    <tr>
+    <tr class="rows">
         <td>
             <%= firstName %>
         </td>
@@ -96,7 +118,7 @@
             <%= job %>
         </td>
         <td>
-            <a class="update" href="#">Update</a>
+            <a class="update" id="id<%= vol_ID %>" href="#">Update</a>
             <a class="delete" id="id<%= vol_ID %>" href="#">Delete</a>
         </td>
     </tr>
