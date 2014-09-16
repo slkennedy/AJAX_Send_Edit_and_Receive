@@ -1,0 +1,27 @@
+$primary-font:#baf6ff;
+$secondary-font:4c7a00;
+$tertiary-font:#297487;
+
+
+$primary-background:#5494a0;
+$secondary-background:#baf6ff;
+
+$primary-border:#297487;
+
+body {
+	font-family: helvetica;
+}
+
+h1 {
+	color: $tertiary-font;
+}
+
+p label {
+	color:$primary-font;
+}
+
+.form {
+	background: $primary-background;
+	border-radius: 3px;
+	border: 2px solid $primary-border;
+}
