@@ -11,7 +11,6 @@ $("form").submit(function(event) {
 
 function reusableTemplate(templateId, container, model) {
     var templateFunction = _.template($('#' + templateId).text());
-        console.log(model);
     var renderedTemplate = templateFunction(model);
     $(container).append(renderedTemplate);
 }
@@ -31,15 +30,20 @@ $('.viewbutton').on('click', function() {
 	        job: vol.job,
 	        vol_ID: vol._id
 	    };
+	    console.log(tableData);
 	  reusableTemplate('tableInfo', '.tablevolunteer', tableData);
 	  })
 	});
 });
 
-$(".delete").on('click', function(event) {
+$(document).on('click', '.delete', function(event) {
     event.preventDefault();
     var idname = $(this).attr("id").slice(2);
+    console.log (idname);
     $.ajax("http://tiny-pizza-server.herokuapp.com/collections/volunteers"+idname, {
-        type: "DELETE",
+        type: "DELETE"
     });
-});
+}).done(function(message){
+	alert("Deletion Completed");
+}); 
+
