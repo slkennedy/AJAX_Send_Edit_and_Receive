@@ -13,29 +13,109 @@
 
     <script src="scripts/vendor/modernizr.js"></script>
   </head>
-  <body>
+<body>
+<nav>
+    <ul>
+        <li>
+        <a class="viewbutton" href="#">Add Volunteer</a>
+        </li>
+        <li>
+            <a class="viewbutton" href="#">View Volunteers</a>
+        </li>
+    </ul>
+</nav>
+<h1>Add A New Volunteer</h1>
+    <form id="addvolunteer" method="post">
+        <div class="form">
+            <h2>Name:</h2>
+                <p>
+                    <input type="text" name="firstname" placeholder="First Name"/>
+                </p>
+                <p>
+                    <input type="text" name="lastname" placeholder="Last Name"/>
+                </p>
+            <h2>Contact Info:</h2>
+                <p>
+                    <input type="text" name="phone" placeholder="Phone" />
+                </p>
+                <p>
+                    <input type="email" name="email" placeholder="Email" />
+                </p>
+            <h2>Job Assignment:</h2>
+                <p>
+                    <select name="job" class="dropdown">
+                        <option value="job1">Job 1</option>
+                        <option value="job2">Job 2</option>
+                        <option value="job3">Job 3</option>
+                    </select> 
+                </p>
+            <input type="submit" value="Add Volunteer" id="button"/>
+        </div>
+    </form>
+    <section id="viewvolunteer">
+        <h1>View Volunteers</h1>
+            <table class="tablevolunteer">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>                
+                    <th>Job</th>
+                    <th>Changes</th>        
+            </table>
+    </section>
+    <h1>Update A Volunteer</h1>
+    <form id="updatevolunteer" method="post">
+        <div class="form">
+            <h2>Update Name:</h2>
+                <p>
+                    <input type="text" name="firstname" placeholder="First Name" id="updatefirst"/>
+                </p>
+                <p>
+                    <input type="text" name="lastname" placeholder="Last Name" id="updatelast"/>
+                </p>
+            <h2>Update Contact Info:</h2>
+                <p>
+                    <input type="text" name="phone" placeholder="Phone" id="updatephone" />
+                </p>
+                <p>
+                    <input type="email" name="email" placeholder="Email" id="updateemail" />
+                </p>
+            <h2>Update Job Assignment:</h2>
+                <p>
+                    <select name="job" class="dropdown" id="updatejob">
+                        <option value="job1">Job 1</option>
+                        <option value="job2">Job 2</option>
+                        <option value="job3">Job 3</option>
+                    </select> 
+                </p>
+            <input type="submit" value="Update Volunteer" id="updatebutton"/>
+        </div>
+    </form>
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
+<script id="tableInfo" type="text/template">
+    <tr class="rows">
+        <td>
+            <%= firstName %>
+        </td>
+        <td>
+            <%= lastName %>
+        </td>
+        <td>
+            <%= phone %>
+        </td>
+        <td>
+            <%= email %>
+        </td>
+        <td>
+            <%= job %>
+        </td>
+        <td>
+            <a class="update" id="id<%= vol_ID %>" href="#">Update</a>
+            <a class="delete" id="id<%= vol_ID %>" href="#">Delete</a>
+        </td>
+    </tr>
+</script>
 
-        <li>Sass</li>
-
-
-        <li>Modernizr</li>
-
-
-        <li>Bourbon & Neat</li>
-
-
-        <li>UnderscoreJS</li>
-
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
-    </div>
 
     <script src="scripts/vendor.js"></script>
 
