@@ -1,6 +1,13 @@
 $("form").submit(function(event) {
     var dataArray = $(this).serializeArray();
     event.preventDefault();
+    cosole.log (dataArray);
+
+    // var model = -.reduce(dataArray, function(acum, item){
+    // 	acum [item.name]=item.value;
+    // 	return acum;
+    // }, {});
+    // })
 
     $.ajax("http://tiny-pizza-server.herokuapp.com/collections/volunteers", {
         type: "POST",
@@ -17,6 +24,14 @@ function reusableTemplate(templateId, container, model) {
     $(container).append(renderedTemplate);
 }
 
+var defaultPost = {
+	firstname: "No First Name",
+    lastname: "No Last Name",
+    phone: "No Phone",
+   	email: "No Email",
+    job: "Job 1"
+};
+
 $('.viewbutton').on('click', function() {
 	$.ajax("http://tiny-pizza-server.herokuapp.com/collections/volunteers", {
 	    type: "GET",
@@ -32,14 +47,14 @@ $('.viewbutton').on('click', function() {
 	        job: vol.job,
 	        vol_ID: vol._id
 	    };
-	    console.log(tableData);
-	  reusableTemplate('tableInfo', '.tablevolunteer', tableData);
+	    _.defaults(data, defaultPost);	  
+	    reusableTemplate('tableInfo', '.tablevolunteer', tableData);
 	  })
 	});
 });
 
 $(document).on('click', '.delete', function(another) {
-    event.preventDefault();
+    another.preventDefault();
     var idname = $(this).attr("id").slice(2);
     $.ajax("http://tiny-pizza-server.herokuapp.com/collections/volunteers/"+idname, {
         type: "DELETE"
@@ -53,8 +68,17 @@ $(document).on('click', '.delete', function(another) {
 // 	event.preventDefault();
 // 	var update = $(this).attr("id").slice(2);
 // $.ajax("http://tiny-pizza-server.herokuapp.com/collections/volunteers/"+update, {
-//       type='GET',
+//       type='PUT',
 //       dataType='json'
+//       data {
+//       		firstName: vol.firstname,
+// 	        lastName: vol.lastname,
+// 	        phone: vol.phone,
+// 	        email: vol.email,
+// 	        job: vol.job,
+// 	        vol_ID: vol._id
+//       }
+
 //     }).done(function(update){
 
 //     	var tableData = {
@@ -65,7 +89,7 @@ $(document).on('click', '.delete', function(another) {
 // 	        job: vol.job,
 // 	        vol_ID: vol._id
 // 	    };
-	    
+
 //       $('#updatefirst').val('vol.firstname')
 // 	  $('#updatelast').val('vol.lastname')
 // 	  $('#updatephone').val('vol.phone')
